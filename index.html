@@ -3,52 +3,175 @@
 <head>
   <meta charset="UTF-8">
   <title>Proyectos de Electrónica</title>
-  <!-- Vinculamos el CSS externo -->
-  <link rel="stylesheet" href="Style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
     <h1>⚡ Proyectos de Electrónica por Niveles ⚡</h1>
-    <p>Explora ideas de proyectos para principiantes, intermedios y avanzados.</p>
+    <p>Explora proyectos con materiales y pasos, desde básico hasta avanzado.</p>
+
+    <!-- Buscador -->
+    <input type="text" id="search" placeholder="🔍 Buscar un proyecto...">
+
+    <!-- Botones de filtro -->
+    <div class="filters">
+      <button onclick="filterProjects('all')">Todos</button>
+      <button onclick="filterProjects('basico')">Básico</button>
+      <button onclick="filterProjects('intermedio')">Intermedio</button>
+      <button onclick="filterProjects('avanzado')">Avanzado</button>
+    </div>
   </header>
 
-  <div class="container">
-    <!-- Nivel Básico -->
-    <div class="card">
+  <div class="container" id="projects">
+
+    <!-- ================== Nivel Básico ================== -->
+    <div class="card basico">
       <h2>🔰 Nivel Básico</h2>
-      <p>Proyectos ideales para quienes están empezando:</p>
-      <ul>
-        <li>Encender un LED con una batería y resistencia.</li>
-        <li>Semáforo con LEDs y resistencias.</li>
-        <li>Pequeña lámpara con interruptor.</li>
-      </ul>
+
+      <div class="project">
+        <button class="accordion">Encender un LED con resistencia</button>
+        <div class="panel">
+          <p><strong>Nivel:</strong> Básico</p>
+          <p><strong>Materiales:</strong> LED, resistencia 220Ω, batería 9V, cables</p>
+          <p><strong>Pasos:</strong></p>
+          <ol>
+            <li>Conecta la resistencia al ánodo (+) del LED.</li>
+            <li>Une la resistencia al positivo de la batería.</li>
+            <li>Conecta el cátodo del LED al negativo de la batería.</li>
+          </ol>
+          <img src="/Images/LedResistencia.jpeg" alt="LED con resistencia">
+        </div>
+      </div>
+
+      <div class="project">
+        <button class="accordion">Semáforo con LEDs</button>
+        <div class="panel">
+          <p><strong>Nivel:</strong> Básico</p>
+          <p><strong>Materiales:</strong> LEDs rojo, amarillo y verde, resistencias 220Ω, protoboard, batería 9V</p>
+          <p><strong>Pasos:</strong></p>
+          <ol>
+            <li>Coloca los tres LEDs en la protoboard.</li>
+            <li>Conecta cada LED a una resistencia.</li>
+            <li>Alimenta desde la batería y enciende cada LED por separado.</li>
+          </ol>
+          <img src="/Images/SemaforoLed.png" alt="Semáforo LED">
+        </div>
+      </div>
+
+      <div class="project">
+        <button class="accordion">Lámpara con interruptor</button>
+        <div class="panel">
+          <p><strong>Nivel:</strong> Básico</p>
+          <p><strong>Materiales:</strong> LED de alta potencia, interruptor, batería 9V, cables</p>
+          <p><strong>Pasos:</strong></p>
+          <ol>
+            <li>Conecta el interruptor en serie con el LED.</li>
+            <li>Une todo a la batería.</li>
+            <li>Activa el interruptor para encender y apagar.</li>
+          </ol>
+        </div>
+      </div>
     </div>
 
-    <!-- Nivel Intermedio -->
-    <div class="card">
+    <!-- ================== Nivel Intermedio ================== -->
+    <div class="card intermedio">
       <h2>⚙️ Nivel Intermedio</h2>
-      <p>Requieren Arduino o microcontroladores:</p>
-      <ul>
-        <li>Medición de temperatura con DHT11.</li>
-        <li>Radar con sensor ultrasónico y servomotor.</li>
-        <li>Control de luces con potenciómetro.</li>
-      </ul>
+
+      <div class="project">
+        <button class="accordion">Medición de temperatura con DHT11</button>
+        <div class="panel">
+          <p><strong>Nivel:</strong> Intermedio</p>
+          <p><strong>Materiales:</strong> Arduino UNO, sensor DHT11, resistencias, cables</p>
+          <p><strong>Pasos:</strong></p>
+          <ol>
+            <li>Conecta el sensor DHT11 al Arduino.</li>
+            <li>Programa para leer la temperatura y humedad.</li>
+            <li>Muestra los valores en el monitor serial.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="project">
+        <button class="accordion">Radar con sensor ultrasónico</button>
+        <div class="panel">
+          <p><strong>Nivel:</strong> Intermedio</p>
+          <p><strong>Materiales:</strong> Arduino, servomotor, sensor ultrasónico HC-SR04</p>
+          <p><strong>Pasos:</strong></p>
+          <ol>
+            <li>Conecta el servo al Arduino.</li>
+            <li>Coloca el sensor ultrasónico sobre el servo.</li>
+            <li>Programa para mover el servo y leer distancias.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="project">
+        <button class="accordion">Control de luces con potenciómetro</button>
+        <div class="panel">
+          <p><strong>Nivel:</strong> Intermedio</p>
+          <p><strong>Materiales:</strong> Arduino, potenciómetro, LEDs</p>
+          <p><strong>Pasos:</strong></p>
+          <ol>
+            <li>Conecta el potenciómetro al pin analógico del Arduino.</li>
+            <li>Usa el valor leído para regular el brillo de los LEDs.</li>
+          </ol>
+        </div>
+      </div>
     </div>
 
-    <!-- Nivel Avanzado -->
-    <div class="card">
+    <!-- ================== Nivel Avanzado ================== -->
+    <div class="card avanzado">
       <h2>🚀 Nivel Avanzado</h2>
-      <p>Proyectos más complejos e innovadores:</p>
-      <ul>
-        <li>Estación meteorológica con ESP32 y WiFi.</li>
-        <li>Control de acceso con RFID y servomotores.</li>
-        <li>Automatización del hogar (IoT).</li>
-      </ul>
+
+      <div class="project">
+        <button class="accordion">Estación meteorológica con ESP32</button>
+        <div class="panel">
+          <p><strong>Nivel:</strong> Avanzado</p>
+          <p><strong>Materiales:</strong> ESP32, sensores DHT22 y BMP180, WiFi</p>
+          <p><strong>Pasos:</strong></p>
+          <ol>
+            <li>Conecta los sensores al ESP32.</li>
+            <li>Programa para enviar datos a la nube.</li>
+            <li>Visualiza temperatura, humedad y presión en una página web.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="project">
+        <button class="accordion">Control de acceso con RFID</button>
+        <div class="panel">
+          <p><strong>Nivel:</strong> Avanzado</p>
+          <p><strong>Materiales:</strong> ESP32, lector RFID RC522, servomotor</p>
+          <p><strong>Pasos:</strong></p>
+          <ol>
+            <li>Conecta el módulo RFID al ESP32.</li>
+            <li>Programa para reconocer tarjetas autorizadas.</li>
+            <li>Haz que el servomotor se active al validar.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="project">
+        <button class="accordion">Automatización del hogar (IoT)</button>
+        <div class="panel">
+          <p><strong>Nivel:</strong> Avanzado</p>
+          <p><strong>Materiales:</strong> ESP32, relevadores, lámparas, WiFi</p>
+          <p><strong>Pasos:</strong></p>
+          <ol>
+            <li>Conecta los relevadores al ESP32.</li>
+            <li>Programa para encender/apagar luces desde el celular.</li>
+            <li>Integra con un servicio IoT como Blynk o MQTT.</li>
+          </ol>
+        </div>
+      </div>
     </div>
+
   </div>
 
   <footer>
-    &copy; 2025 - Página creada para aprender HTML y CSS sobre proyectos de electrónica
+    &copy; 2025 - Página creada para aprender HTML, CSS y JS sobre proyectos de electrónica
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
